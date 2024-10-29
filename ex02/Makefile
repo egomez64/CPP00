@@ -10,33 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
-CXX = c++
+CC=c++
+NAME = Account
+SRCS = Account.cpp tests.cpp
+HEADER = Account.hpp
+OBJS = $(SRCS:.cpp=.o)
+CFLAGS = -Wall -Wextra -Werror -g --std=c++98
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+all:$(NAME)
 
-NAME = bank
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
 
-SRC = main.cpp \
-		Account.hpp \
-		tests.cpp \
-
-OBJ = $(SRC:.cpp=.o)
-
-all: $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
-
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+%.o : %.cpp $(HEADER)
+	$(CC) $(CFLAGS) $< -c -o $@
 
 fclean: clean
 	rm -f $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 re: fclean all
 
 .PHONY: all fclean clean re
-
