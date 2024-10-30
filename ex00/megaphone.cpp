@@ -16,9 +16,6 @@ int	main(int ac, char **av)
 {
 	if (ac>1)
 	{
-		for (int i = 1; av[i]; i++)
-			std::cout << av[i];
-		std::cout << std::endl;
 		for (int i = 1; av[i]; i++) {
 			std::string str(av[i]);
 			for (std::string::iterator it = str.begin(); it != str.end(); it++)

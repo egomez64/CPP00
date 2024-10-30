@@ -32,10 +32,19 @@ void PhoneBook::search() {
 	std::string index;
 	int count;
 
+	if (!this->_nb_contact) {
+		std::cout << "No contact register" << std::endl;
+		return ;
+	}
 	Contact::display(this->repertoire, this->_nb_contact);
 	while (index.empty()) {
 		std::cout << "Which contact do you want to see ?" << std::endl;
 		std::getline(std::cin, index);
+	}
+	if (index.size() != 1 || index[0] < '0' || index[0] > '7')
+	{
+		std::cout << "Non valid index" << std::endl;
+		return ;
 	}
 	std::stringstream _ss(index);
 	_ss >> count;

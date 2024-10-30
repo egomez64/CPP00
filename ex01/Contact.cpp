@@ -27,11 +27,11 @@ Contact Contact::ask() {
 		std::cout << "Nickname :" << std::endl;
 		std::getline(std::cin, tmp.nickname);
 	}
-	if (tmp.number.empty()) {
+	while (tmp.number.empty()) {
 		std::cout << "Number :" << std::endl;
 		std::getline(std::cin, tmp.number);
 	}
-	if (tmp.secret.empty()) {
+	while (tmp.secret.empty()) {
 		std::cout << "Darkest Secret :" << std::endl;
 		std::getline(std::cin, tmp.secret);
 	}

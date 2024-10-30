@@ -17,20 +17,18 @@
 
 class Contact
 {
-public:
+private:
 	std::string firstname;
 	std::string lastname;
 	std::string nickname;
 	std::string number;
 	std::string secret;
+	static void trunc(std::string str);
 
 public:
 	static Contact ask();
 	static void display(Contact *repertoire, int max);
 	static void print_contact(Contact contact);
-
-private:
-	static void trunc(std::string str);
 };
 
 #endif
